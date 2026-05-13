@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LoanApp</title>
+    <link rel="stylesheet" href="/loanapp/css/style.css">
+</head>
+<body>
+
+    <div class="auth-wrap">
+        <div class="auth-card">
+            <h1>Create Account</h1>
+            <p class="auth-subtitle">Already registered? <a href="login.html">Sign in</a></p>
+
+            <div id="msg"></div>
+
+            <form id="register-form" action="/loanapp/php/auth/register.php" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    <div class="field-error" id="name-error">Name must contain letters only, no numbers.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@gmail.com" required>
+                    <div class="field-error" id="email-error">Use a valid email (e.g. @gmail.com, @yahoo.com).</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="monthly_income">Monthly Income (₦)</label>
+                    <input type="number" id="monthly_income" name="monthly_income" placeholder="e.g. 150000" min="1" required>
+                    <div class="field-hint">Used to calculate your maximum loan amount.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Min 8 chars, uppercase, number, symbol" required>
+                    <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+                    <div class="strength-label" id="strength-label"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" id="password2" name="password2" placeholder="Repeat your password" required>
+                    <div class="field-error" id="pass2-error">Passwords do not match.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/loanapp/js/register.js"></script>
+</body>
+</html>

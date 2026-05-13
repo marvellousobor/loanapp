@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Loan - LoanApp</title>
+    <link rel="stylesheet" href="/loanapp/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <a class="nav-brand" href="/loanapp/dashboard.php">⬡ LoanApp</a>
+        <div class="nav-links">
+            <a href="/loanapp/dashboard.php">Dashboard</a>
+            <a href="/loanapp/loans.php">Loans</a>
+            <a href="/loanapp/html/apply.html" class="active">Apply</a>
+            <a href="/loanapp/kyc.php">KYC</a>
+            <a href="/loanapp/php/auth/logout.php" class="btn btn-ghost btn-sm">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Apply for a Loan</h1>
+
+        <div id="msg"></div>
+
+        <div class="form-box">
+            <form action="/loanapp/php/loans/apply.php" method="POST">
+                <div class="form-group">
+                    <label for="amount">Loan Amount (₦)</label>
+                    <input type="number" id="amount" name="amount" placeholder="e.g. 50000" min="1000" step="500" required>
+                    <div class="field-hint">Your limit is based on your monthly income.</div>
+                </div>
+                <div class="form-group">
+                    <label for="purpose">Purpose of Loan</label>
+                    <textarea id="purpose" name="purpose" placeholder="Describe what you need this loan for..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+                <a href="/loanapp/loans.php" class="btn btn-ghost" style="margin-left: .6rem;">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="/loanapp/js/apply.js"></script>
+</body>
+</html>

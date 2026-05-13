@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Explorer - LoanApp</title>
+    <link rel="stylesheet" href="/loanapp/css/style.css">
+    <link rel="stylesheet" href="/loanapp/css/api.css">
+</head>
+
+<body>
+
+    <nav>
+        <a class="nav-brand" href="/loanapp/dashboard.php">⬡ LoanApp</a>
+        <div class="nav-links">
+            <a href="/loanapp/dashboard.php">Dashboard</a>
+            <a href="/loanapp/html/api_explorer.html" class="active">API Explorer</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">API Explorer</h1>
+        <p style="color:var(--muted);margin-bottom:2rem;font-size:.9rem;">
+            Base URL: <span class="mono" style="color:var(--accent);">http://localhost/loanapp/api.php?endpoint=</span>
+        </p>
+
+        <div class="api-layout">
+
+            <!-- LEFT: Endpoint List -->
+            <div class="endpoint-list">
+
+                <div class="endpoint-section-title">Users</div>
+                <div class="endpoint-item active" data-endpoint="users" data-method="GET">
+                    <span class="method-badge get">GET</span> users
+                </div>
+                <div class="endpoint-item" data-endpoint="user" data-method="GET">
+                    <span class="method-badge get">GET</span> user
+                </div>
+                <div class="endpoint-item" data-endpoint="create_user" data-method="POST">
+                    <span class="method-badge post">POST</span> create_user
+                </div>
+
+                <div class="endpoint-section-title">Loans</div>
+                <div class="endpoint-item" data-endpoint="loans" data-method="GET">
+                    <span class="method-badge get">GET</span> loans
+                </div>
+                <div class="endpoint-item" data-endpoint="loan" data-method="GET">
+                    <span class="method-badge get">GET</span> loan
+                </div>
+                <div class="endpoint-item" data-endpoint="apply" data-method="POST">
+                    <span class="method-badge post">POST</span> apply
+                </div>
+                <div class="endpoint-item" data-endpoint="update_loan" data-method="POST">
+                    <span class="method-badge post">POST</span> update_loan
+                </div>
+
+                <div class="endpoint-section-title">Wallet</div>
+                <div class="endpoint-item" data-endpoint="wallet" data-method="GET">
+                    <span class="method-badge get">GET</span> wallet
+                </div>
+
+                <div class="endpoint-section-title">Config</div>
+                <div class="endpoint-item" data-endpoint="config" data-method="GET">
+                    <span class="method-badge get">GET</span> config
+                </div>
+                <div class="endpoint-item" data-endpoint="update_config" data-method="POST">
+                    <span class="method-badge post">POST</span> update_config
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Request + Response -->
+            <div class="api-main">
+
+                <!-- Request Panel -->
+                <div class="api-panel">
+                    <div class="panel-header">
+                        <div style="display:flex;align-items:center;gap:.8rem;">
+                            <span class="method-badge" id="display-method">GET</span>
+                            <span class="mono" id="display-url" style="font-size:.88rem;color:var(--muted);">
+                                api.php?endpoint=users
+                            </span>
+                        </div>
+                        <button class="btn btn-primary btn-sm" id="send-btn">Send Request</button>
+                    </div>
+
+                    <!-- GET params -->
+                    <div id="get-params" style="padding:1rem 1.2rem 0;">
+                        <div id="id-param-group" style="display:none;">
+                            <div class="form-group">
+                                <label id="id-label">ID</label>
+                                <input type="number" id="id-param" placeholder="e.g. 1">
+                            </div>
+                        </div>
+                        <div id="user-id-param-group" style="display:none;">
+                            <div class="form-group">
+                                <label>user_id</label>
+                                <input type="number" id="user-id-param" placeholder="e.g. 1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- POST body -->
+                    <div id="body-section" style="display:none;padding:0 1.2rem 1.2rem;">
+                        <label
+                            style="display:block;font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem;">
+                            Request Body (JSON)
+                        </label>
+                        <textarea id="request-body" class="mono"
+                            style="width:100%;height:160px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;padding:.8rem;font-size:.85rem;resize:vertical;outline:none;font-family:'DM Mono',monospace;"></textarea>
+                    </div>
+                </div>
+
+                <!-- Response Panel -->
+                <div class="api-panel">
+                    <div class="panel-header">
+                        <span style="font-weight:600;">Response</span>
+                        <div style="display:flex;align-items:center;gap:.8rem;">
+                            <span id="status-badge" class="status-badge"></span>
+                            <span id="response-time" style="font-size:.78rem;color:var(--muted);"></span>
+                            <button class="btn btn-ghost btn-sm" id="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    <pre id="response-output"
+                        class="mono response-box">// Click an endpoint and press Send Request</pre>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/loanapp/js/api.js"></script>
+</body>
+
+</html>

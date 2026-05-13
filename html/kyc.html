@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Verification - LoanApp</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <a class="nav-brand" href="../dashboard.php">⬡ LoanApp</a>
+        <div class="nav-links">
+            <a href="../dashboard.php">Dashboard</a>
+            <a href="../loans.php">Loans</a>
+            <a href="../html/apply.php">Apply</a>
+            <a href="../kyc.php" class="active">KYC</a>
+            <a href="../php/auth/logout.php" class="btn btn-ghost btn-sm">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">KYC Verification</h1>
+
+        <div id="msg"></div>
+
+        <div class="form-box">
+            <p style="color: var(--muted); font-size: .88rem; margin-bottom: 1.5rem;">
+                Submit your NIN and BVN to verify your identity. This is required before applying for a loan.
+            </p>
+
+            <form action="../php/kyc/submit.php" method="POST">
+                <div class="form-group">
+                    <label for="nin">NIN (National Identification Number)</label>
+                    <input type="text" id="nin" name="nin" placeholder="11-digit NIN" maxlength="11" required>
+                    <div class="field-error" id="nin-error">NIN must be exactly 11 digits.</div>
+                </div>
+                <div class="form-group">
+                    <label for="bvn">BVN (Bank Verification Number)</label>
+                    <input type="text" id="bvn" name="bvn" placeholder="11-digit BVN" maxlength="11" required>
+                    <div class="field-error" id="bvn-error">BVN must be exactly 11 digits.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit & Verify</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/kyc.js"></script>
+</body>
+
+</html>
